@@ -1,0 +1,5 @@
+interface FakeBookResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+}

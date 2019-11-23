@@ -1,0 +1,15 @@
+type FBSong {
+    id: String
+    chordChart: String
+    composer: FBComposer
+    key: String
+    year: String
+    style: String
+}
+
+type FakeBookSongResponse implements FakeBookResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  song: Song
+}

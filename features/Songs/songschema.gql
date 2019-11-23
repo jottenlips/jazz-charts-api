@@ -1,0 +1,12 @@
+type FBComposer {
+    id: String
+    songs: [FBSong]
+    name: String
+}
+
+type FakeBookComposerResponse implements FakeBookResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  composer: FBComposer
+}

@@ -1,0 +1,13 @@
+interface FakeBookResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+}
+
+Query {
+    getComposer(id: String!): FBSong
+    getComposers(paginationKey: String): FBComposer
+    getSong(id: String!): FBComposer
+    # Retrieve all songs alpha or get all songs for a composer
+    getSongs(composerId: String, paginationKey: String): FBComposer
+}
