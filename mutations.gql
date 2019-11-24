@@ -3,3 +3,8 @@ interface FakeBookResponse {
   success: Boolean!
   message: String!
 }
+
+type Mutation {
+    createSong(song: FBSongCreateInput): FakeBookSongResponse
+    updateSong(song: FBSongUpdateInput): FakeBookSongResponse
+}

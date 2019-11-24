@@ -1,4 +1,4 @@
-from ariadne import QueryType, make_executable_schema, graphql_sync
+from ariadne import QueryType, make_executable_schema, graphql_sync, MutationType
 from ariadne import load_schema_from_path
 from features.Songs.songTypes import songTypes, songObjectType
 from ariadne.constants import PLAYGROUND_HTML
@@ -9,12 +9,15 @@ from features.Songs.song import resolve_song
 
 queryTypes = load_schema_from_path("./queries.gql")
 mutationTypes = load_schema_from_path("./mutations.gql")
-# mutationTypes = load_schema_from_path("./mutations.graphql")
 query = QueryType()
 query.set_field('getComposer', resolve_composer)
 query.set_field('getSong', resolve_song)
+mutation = MutationType()
 
-schema = make_executable_schema([mutationTypes, queryTypes, songTypes, composerTypes], [songObjectType, composerObjectType, query])
+schema = make_executable_schema(
+    [mutationTypes, queryTypes, songTypes, composerTypes],
+    [songObjectType, composerObjectType, query, mutation]
+)
 
 app = Flask(__name__)
 
@@ -32,5 +35,5 @@ def graphql_server():
         context_value=request,
         debug=app.debug
     )
-
+    print(success)
     return jsonify(result)
