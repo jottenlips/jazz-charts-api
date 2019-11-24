@@ -1,11 +1,11 @@
 from ariadne import load_schema_from_path
-from ariadne import QueryType
+from ariadne import ObjectType
 
 composerTypes = load_schema_from_path("./features/Composers/composer.gql")
+composerObjectType = ObjectType('FBComposer')
 
-query = QueryType()
-@query.field("composer")
-def resolve_composer(*_):
+def get_composer(*_, info, id=None):
+    print('hello world')
     return {
         'id': '1',
         'name': 'Duke Ellington'

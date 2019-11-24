@@ -1,11 +1,12 @@
 from ariadne import load_schema_from_path
-from ariadne import QueryType
+from ariadne import ObjectType
 
 songTypes = load_schema_from_path("./features/Songs/song.gql")
 
-query = QueryType()
-@query.field("song")
-def resolve_song(*_):
+songObjectType = ObjectType('FBSong')
+
+
+def get_song(*_, id=None):
     return {
         'id': '1',
         'chordChart': 'Bbm7 | Eb7 | AbM7'
