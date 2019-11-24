@@ -8,7 +8,14 @@ composerObjectType = ObjectType('FBComposer')
 
 
 def get_composer(*_, id=None):
-    result =  table.query(
+    composer = table.query(
         KeyConditionExpression=Key('id').eq(id)
     )['Items'][0]
-    return result
+
+    return composer
+
+def resolve_composer(id):
+    composer = table.query(
+        KeyConditionExpression=Key('id').eq(id)
+    )['Items'][0]
+    return composer

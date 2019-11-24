@@ -2,6 +2,7 @@
 
 type FBSong {
     id: String
+    title: String
     chordChart: String
     composer: FBComposer
     key: String
