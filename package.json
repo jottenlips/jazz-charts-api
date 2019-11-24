@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jottenlips/jazz-charts-api#readme",
   "devDependencies": {
+    "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.12.0",
     "serverless-python-requirements": "^5.0.1",
     "serverless-wsgi": "^1.7.4"
