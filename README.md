@@ -1,4 +1,7 @@
 # Offline Dev
+
+`virtualenv -p python3 venv`
+
 `npm install`
 
 `pip install -r requirements.txt`
