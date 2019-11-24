@@ -6,25 +6,28 @@ plugins:
 
 provider:
   name: aws
-  runtime: python3
+  runtime: python3.7
   stage: ${opt:stage, 'dev'}
-  # iamRoleStatements:
-  #   - Effect: Allow
-  #     Action:
-  #       - dynamodb:Query
-  #       - dynamodb:Scan
-  #       - dynamodb:GetItem
-  #       - dynamodb:PutItem
-  #       - dynamodb:UpdateItem
-  #       - dynamodb:DeleteItem
-  #     Resource:
-  #       - { "Fn::GetAtt": ["jazz-charts-table", "Arn" ] }
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn::GetAtt": ["jazzchartstable", "Arn" ] }
   environment:
     STAGE: ${self:provider.stage}
 
 custom:
   wsgi:
     app: app.app
+    packRequirements: false
+  pythonRequirements:
+    dockerizePip: non-linux
 
 functions:
   api:
@@ -33,23 +36,23 @@ functions:
       - http: ANY /
       - http: ANY {proxy+}
 
-# resources:
-#   Resources:
-#     jazz-charts-table:
-#       Type: AWS::DynamoDB::Table
-#       Properties:
-#         TableName: jazz-charts-${self:provider.stage}
-#         AttributeDefinitions:
-#           - AttributeName: id
-#             AttributeType: S
-#           - AttributeName: skey
-#             AttributeType: S
-#         KeySchema:
-#           - AttributeName: id
-#             KeyType: HASH
-#           - AttributeName: skey
-#             KeyType: RANGE
-#         ProvisionedThroughput:
-#           ReadCapacityUnits: 1
-#           WriteCapacityUnits: 1
+resources:
+  Resources:
+    jazzchartstable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: jazz-charts-${self:provider.stage}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: skey
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: skey
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
