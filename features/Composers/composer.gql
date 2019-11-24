@@ -11,5 +11,5 @@ type FakeBookSongResponse implements FakeBookResponse {
   code: String!
   success: Boolean!
   message: String!
-  song: Song
+  song: FBSong
 }
