@@ -19,3 +19,20 @@ Example Response
   }
 }
 ```
+
+```
+{
+  "data": {
+    "getComposer": {
+      "id": "c1",
+      "name": "Jerome Kern",
+      "songs": [
+        {
+          "id": "1",
+          "title": "All the Things You Are"
+        }
+      ]
+    }
+  }
+}
+```
