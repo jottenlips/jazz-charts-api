@@ -1,12 +1,17 @@
-type FBComposer {
+
+
+type FBSong {
     id: String
-    songs: [FBSong]
-    name: String
+    chordChart: String
+    composer: FBComposer
+    key: String
+    year: String
+    style: String
 }
 
-type FakeBookComposerResponse implements FakeBookResponse {
+type FakeBookSongResponse implements FakeBookResponse {
   code: String!
   success: Boolean!
   message: String!
-  composer: FBComposer
+  song: FBSong
 }
