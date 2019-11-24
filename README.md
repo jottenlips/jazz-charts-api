@@ -1,4 +1,8 @@
 # Offline Dev
+`npm install`
+
+`pip install -r requirements.txt`
+
 `sls wsgi serve -p 8000`
 
 Test queries in Graphi at http://localhost:8000/graphql
