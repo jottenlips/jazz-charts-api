@@ -3,6 +3,7 @@ service: jazz-charts-api
 plugins:
   - serverless-offline
   - serverless-wsgi
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
@@ -21,6 +22,7 @@ provider:
         - { "Fn::GetAtt": ["jazzchartstable", "Arn" ] }
   environment:
     STAGE: ${self:provider.stage}
+    TABLE_NAME: ${env:TABLE_NAME}
 
 custom:
   wsgi:
@@ -28,6 +30,11 @@ custom:
     packRequirements: false
   pythonRequirements:
     dockerizePip: non-linux
+  dotenv:
+    path: ./.env
+    basePath: ./
+    include:
+      - TABLE_NAME
 
 functions:
   api:
