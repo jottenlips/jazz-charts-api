@@ -27,12 +27,23 @@ def create_song(obj, info, song):
     }
 
 def update_song(obj, info, song):
-    if (song['composerId']):
-        song['skey'] = 'song_composer:'+song['composerId']
-    table.update_item(Item=song)
+
+    updated_song = table.update_item(
+        Key={
+            'id': song['id']
+        },
+        UpdateExpression="set title = :title",
+        ExpressionAttributeValues={
+            ':title': song['title']
+        },
+    )
+
     return {
-        'song': song,
+        'song': updated_song,
         'message': 'success',
         'code': 200,
         'success': True
     }
+
+    #    composer= :composer,
+    #     chordChart= :chordChart
