@@ -10,7 +10,7 @@ type FBSong {
 
 input FBSongCreateInput {
     title: String
-    composerId: String
+    composer: String
     chordChart: String
     key: String
     year: String
@@ -20,7 +20,7 @@ input FBSongCreateInput {
 input FBSongUpdateInput {
     id: String!
     title: String
-    composerId: String
+    composer: String
     chordChart: String
     key: String
     year: String

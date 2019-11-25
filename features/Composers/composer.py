@@ -3,8 +3,8 @@ from boto3.dynamodb.conditions import Key
 
 def resolve_composer(obj, info, id=None):
     print(obj, info, id, ':::COMPO')
-    if (obj and obj['skey']):
-        id = obj['skey'].split('song_composer:')[1]
+    if (obj and 'composer' in obj):
+        id = obj['composer']
     composer = table.query(
         KeyConditionExpression=Key('id').eq(id)
     )['Items'][0]
