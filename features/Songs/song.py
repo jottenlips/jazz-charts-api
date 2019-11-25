@@ -16,7 +16,9 @@ def resolve_songs(obj, info):
 
 def create_song(obj, info, song):
     song['id'] = uuid.uuid4()
+    song['skey'] = 'song_composer:'+song['composerId']
     table.put_item(Item=song)
 
 def update_song(obj, info, song):
+    song['skey'] = 'song_composer:'+song['composerId']
     table.update_item(Item=song)
