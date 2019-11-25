@@ -3,7 +3,7 @@ from boto3.dynamodb.conditions import Key
 from features.Composers.composer import resolve_composer
 
 def resolve_song(obj, info, id):
-    song =  table.query(
+    song = table.query(
         KeyConditionExpression=Key('id').eq(id)
     )['Items'][0]
     return song
