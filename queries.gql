@@ -1,7 +1,4 @@
 type Query {
     getComposer(id: String!): FBComposer
-    # getComposers(paginationKey: String): FBComposer
     getSong(id: String!): FBSong
-    # Retrieve all songs alpha or get all songs for a composer
-    # getSongs(composerId: String, paginationKey: String): FBComposer
 }

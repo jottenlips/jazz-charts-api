@@ -9,7 +9,6 @@ from features.Songs.song import resolve_song
 
 queryTypes = load_schema_from_path("./queries.gql")
 mutationTypes = load_schema_from_path("./mutations.gql")
-# mutationTypes = load_schema_from_path("./mutations.graphql")
 query = QueryType()
 query.set_field('getComposer', resolve_composer)
 query.set_field('getSong', resolve_song)
