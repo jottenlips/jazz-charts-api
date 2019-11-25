@@ -9,6 +9,5 @@ def resolve_song(obj, info, id):
     return song
 
 def resolve_songs(obj, info):
-    print(obj)
     ids = obj['songs']
     return map(lambda id: resolve_song(obj, info, id), ids)
