@@ -15,7 +15,7 @@ def create_composer(obj, info, composer):
     composer['id'] = id
     table.put_item(Item=composer)
     return {
-        'song': composer,
+        'composer': composer,
         'message': 'success',
         'code': 200,
         'success': True
