@@ -1,4 +1,4 @@
-from aws_resources.dynamo import table
+from aws_resources.dynamo import build_update_expression, build_update_attributes_dictionary, table
 from boto3.dynamodb.conditions import Key
 from features.Composers.composer import resolve_composer
 import uuid
@@ -25,16 +25,14 @@ def create_song(obj, info, song):
     }
 
 def update_song(obj, info, song):
+    attributes_to_update = build_update_attributes_dictionary(song)
+    update_expression = build_update_expression(song)
     table.update_item(
         Key={
             'id': song['id']
         },
-        UpdateExpression="set title=:t, composer=:c, chordChart=:ch",
-        ExpressionAttributeValues={
-            ':t': song['title'],
-            ':c': song['composer'],
-            ':ch': song['chordChart']
-        },
+        UpdateExpression=update_expression,
+        ExpressionAttributeValues=attributes_to_update,
     )
     updated_song = table.query(
         KeyConditionExpression=Key('id').eq(song['id'])
