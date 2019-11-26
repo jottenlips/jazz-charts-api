@@ -5,13 +5,13 @@ type FBComposer {
 }
 
 input FBComposerCreateInput {
-    songs: [FBSong]
+    songs: [String]
     name: String
 }
 
 input FBComposerUpdateInput {
     id: String!
-    songs: [FBSong]
+    songs: [String]
     name: String
 }
 
@@ -27,6 +27,6 @@ extend type Query {
 }
 
 extend type Mutation {
-    createComposer(song: FBComposerCreateInput): FakeBookComposerResponse
-    updateComposer(song: FBComposerUpdateInput): FakeBookComposerResponse
+    createComposer(composer: FBComposerCreateInput): FakeBookComposerResponse
+    updateComposer(composer: FBComposerUpdateInput): FakeBookComposerResponse
 }
