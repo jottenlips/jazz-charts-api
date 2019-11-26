@@ -16,6 +16,7 @@ query.set_field('getComposer', resolve_composer)
 query.set_field('getSong', resolve_song)
 
 mutation = MutationType()
+
 mutation.set_field('createSong', create_song)
 mutation.set_field('updateSong', update_song)
 mutation.set_field('createComposer', create_composer)
