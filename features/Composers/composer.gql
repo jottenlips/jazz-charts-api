@@ -10,3 +10,7 @@ type FakeBookComposerResponse implements FakeBookResponse {
   message: String!
   composer: FBComposer
 }
+
+extend type Query {
+  getComposer(id: String!): FBComposer
+}

@@ -3,3 +3,7 @@ interface FakeBookResponse {
   success: Boolean!
   message: String!
 }
+
+type Mutation {
+  hello: FakeBookResponse
+}

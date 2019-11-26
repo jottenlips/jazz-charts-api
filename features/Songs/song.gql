@@ -1,11 +1,21 @@
 type FBSong {
-    id: String
+    id: String!
     title: String
     chordChart: String
     composer: FBComposer
-    key: String
-    year: String
-    style: String
+}
+
+input FBSongCreateInput {
+    title: String
+    composer: String
+    chordChart: String
+}
+
+input FBSongUpdateInput {
+    id: String!
+    title: String
+    composer: String
+    chordChart: String
 }
 
 type FakeBookSongResponse implements FakeBookResponse {
@@ -13,4 +23,13 @@ type FakeBookSongResponse implements FakeBookResponse {
   success: Boolean!
   message: String!
   song: FBSong
+}
+
+extend type Query {
+  getSong(id: String!): FBSong
+}
+
+extend type Mutation {
+    createSong(song: FBSongCreateInput): FakeBookSongResponse
+    updateSong(song: FBSongUpdateInput): FakeBookSongResponse
 }

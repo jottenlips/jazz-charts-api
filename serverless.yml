@@ -45,20 +45,16 @@ functions:
 
 resources:
   Resources:
-    jazzchartstable:
+    jazzcharttable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: jazz-charts-${self:provider.stage}
+        TableName: jazz-chart-${self:provider.stage}
         AttributeDefinitions:
           - AttributeName: id
-            AttributeType: S
-          - AttributeName: skey
             AttributeType: S
         KeySchema:
           - AttributeName: id
             KeyType: HASH
-          - AttributeName: skey
-            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
