@@ -19,7 +19,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - { "Fn::GetAtt": ["jazzchartstable", "Arn" ] }
+        - { "Fn::GetAtt": ["jazz-chart-table", "Arn" ] }
   environment:
     STAGE: ${self:provider.stage}
     TABLE_NAME: ${env:TABLE_NAME}
