@@ -5,6 +5,5 @@ interface FakeBookResponse {
 }
 
 type Mutation {
-    createSong(song: FBSongCreateInput): FakeBookSongResponse
-    updateSong(song: FBSongUpdateInput): FakeBookSongResponse
+  hello: FakeBookResponse
 }

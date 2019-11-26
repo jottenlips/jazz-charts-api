@@ -16,7 +16,6 @@ def resolve_songs(obj, info):
 def create_song(obj, info, song):
     id = str(uuid.uuid4())
     song['id'] = id
-    song['skey'] = ''.join(song['title'].split(' '))
     table.put_item(Item=song)
     return {
         'song': song,
@@ -26,16 +25,20 @@ def create_song(obj, info, song):
     }
 
 def update_song(obj, info, song):
-
-    updated_song = table.update_item(
+    table.update_item(
         Key={
             'id': song['id']
         },
-        UpdateExpression="set title = :title",
+        UpdateExpression="set title=:t, composer=:c, chordChart=:ch",
         ExpressionAttributeValues={
-            ':title': song['title']
+            ':t': song['title'],
+            ':c': song['composer'],
+            ':ch': song['chordChart']
         },
     )
+    updated_song = table.query(
+        KeyConditionExpression=Key('id').eq(song['id'])
+    )['Items'][0]
 
     return {
         'song': updated_song,
@@ -43,6 +46,3 @@ def update_song(obj, info, song):
         'code': 200,
         'success': True
     }
-
-    #    composer= :composer,
-    #     chordChart= :chordChart
