@@ -39,5 +39,4 @@ def graphql_server():
         context_value=request,
         debug=app.debug
     )
-    print(success)
     return jsonify(result)

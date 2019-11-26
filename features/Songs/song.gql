@@ -33,3 +33,7 @@ type FakeBookSongResponse implements FakeBookResponse {
   message: String!
   song: FBSong
 }
+
+extend type Query {
+  getSong(id: String!): FBSong
+}
