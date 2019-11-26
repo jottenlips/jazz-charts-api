@@ -9,12 +9,11 @@ input FBComposerCreateInput {
     name: String
 }
 
-input FBSongUpdateInput {
+input FBComposerUpdateInput {
     id: String!
     songs: [FBSong]
     name: String
 }
-
 
 type FakeBookComposerResponse implements FakeBookResponse {
   code: String!
@@ -23,12 +22,11 @@ type FakeBookComposerResponse implements FakeBookResponse {
   composer: FBComposer
 }
 
-
 extend type Query {
   getComposer(id: String!): FBComposer
 }
 
 extend type Mutation {
     createComposer(song: FBComposerCreateInput): FakeBookComposerResponse
-    updateComposer(song: FBSongUpdateInput): FakeBookComposerResponse
+    updateComposer(song: FBComposerUpdateInput): FakeBookComposerResponse
 }
