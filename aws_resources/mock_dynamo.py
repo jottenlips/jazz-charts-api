@@ -10,10 +10,18 @@ mock_song = {
             "composer": "c1"
         }
 
+another_mock_song = {
+            'id': '2',
+            "title": "It don't mean a thing",
+            "chordChart": "Gm | ...",
+            "composer": "c1"
+        }
+
 mock_composer = {
             'id': 'c1',
             'songs': [
                 '1',
+                '2'
             ],
             'name': 'Duke Ellington'
         }
@@ -46,4 +54,8 @@ def setup_mocks():
 
     table.put_item(
         Item=mock_song
+    )
+
+    table.put_item(
+        Item=another_mock_song
     )
