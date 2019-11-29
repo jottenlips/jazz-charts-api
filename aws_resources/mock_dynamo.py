@@ -3,6 +3,12 @@ from moto import mock_dynamodb2
 import boto3
 import os 
 
+mock_create_song = {
+            "title": "It don't mean a thing",
+            "chordChart": "Gm | ...",
+            "composer": "c1"
+        }
+
 mock_song = {
             'id': '1',
             "title": "It don't mean a thing",
