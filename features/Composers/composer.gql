@@ -1,18 +1,18 @@
 type FBComposer {
     id: String
     songs: [FBSong]
-    name: String
+    fullName: String
 }
 
 input FBComposerCreateInput {
     songs: [String]
-    name: String
+    fullName: String
 }
 
 input FBComposerUpdateInput {
     id: String!
     songs: [String]
-    name: String
+    fullName: String
 }
 
 type FakeBookComposerResponse implements FakeBookResponse {

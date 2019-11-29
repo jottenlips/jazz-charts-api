@@ -5,7 +5,7 @@ import uuid
 def resolve_composer(obj, info, id=None):
     if (obj and 'composer' in obj):
         id = obj['composer']
-    composer = table.query(
+    composer = table().query(
         KeyConditionExpression=Key('id').eq(id)
     )['Items'][0]
     return composer
@@ -13,7 +13,7 @@ def resolve_composer(obj, info, id=None):
 def create_composer(obj, info, composer):
     id = str(uuid.uuid4())
     composer['id'] = id
-    table.put_item(Item=composer)
+    table().put_item(Item=composer)
     return {
         'composer': composer,
         'message': 'success',
@@ -24,14 +24,14 @@ def create_composer(obj, info, composer):
 def update_composer(obj, info, composer):
     attributes_to_update = build_update_attributes_dictionary(composer)
     update_expression = build_update_expression(composer)
-    table.update_item(
+    table().update_item(
         Key={
             'id': composer['id']
         },
         UpdateExpression=update_expression,
         ExpressionAttributeValues=attributes_to_update,
     )
-    updated_composer = table.query(
+    updated_composer = table().query(
         KeyConditionExpression=Key('id').eq(composer['id'])
     )['Items'][0]
 

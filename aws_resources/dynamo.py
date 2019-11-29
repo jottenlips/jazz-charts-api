@@ -1,8 +1,11 @@
 import boto3
 import os
-dynamodb = boto3.resource('dynamodb')
-table_name = os.environ['TABLE_NAME']
-table = dynamodb.Table(table_name)
+
+def table():
+    dynamodb = boto3.resource('dynamodb')
+    table_name = os.environ['TABLE_NAME']
+    table = dynamodb.Table(table_name)
+    return table
 
 def build_update_expression(items):
     keys = items.keys()
