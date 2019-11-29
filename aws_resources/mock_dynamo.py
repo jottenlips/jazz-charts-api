@@ -1,6 +1,6 @@
 
 import boto3
-from moto import mock_dynamodb2
+from moto import mock_dynamodb
 
 mock_song = {
             'id': '1',
@@ -17,11 +17,9 @@ mock_composer = {
             'name': 'Duke Ellington'
         }
         
-@mock_dynamodb2
+@mock_dynamodb
 def setup_mocks():
-    mock_dynamodb2().start()
     dynamodb = boto3.resource('dynamodb')
-    print(mock_dynamodb2)
     table = dynamodb.create_table(
         TableName='jazz-charts-test',
         KeySchema=[
