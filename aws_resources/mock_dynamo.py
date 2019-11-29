@@ -29,9 +29,18 @@ mock_composer = {
                 '1',
                 '2'
             ],
-            'name': 'Duke Ellington'
+            'fullName': 'Duke Ellington'
         }
         
+mock_create_composer = {
+            'songs': [
+                '1',
+                '2'
+            ],
+            'fullName': 'Duke Ellington'
+        }
+        
+
 @mock_dynamodb2
 def setup_mocks():
     dynamodb = boto3.resource('dynamodb')
