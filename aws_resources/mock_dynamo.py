@@ -16,13 +16,14 @@ mock_composer = {
             ],
             'name': 'Duke Ellington'
         }
-
+        
 @mock_dynamodb2
 def setup_mocks():
+    mock_dynamodb2().start()
     dynamodb = boto3.resource('dynamodb')
-
+    print(mock_dynamodb2)
     table = dynamodb.create_table(
-        TableName='posts',
+        TableName='jazz-charts-test',
         KeySchema=[
             {
                 'AttributeName': 'id',
@@ -41,6 +42,7 @@ def setup_mocks():
             'WriteCapacityUnits': 5
         }
     )
+    print(table)
 
     table.put_item(
         Item=mock_composer

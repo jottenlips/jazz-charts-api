@@ -18,7 +18,7 @@ Run queries in Graphi at http://localhost:8000/graphql
 
 ## Run Tests
 
-`python -m pytest`
+`TABLE_NAME=jazz-charts-test python -m pytest`
 
 *Composer*
 
@@ -47,7 +47,7 @@ Example Query:
 {
   getComposer(id: "c1") {
     id
-    name
+    fullName
     songs {
       id
       title
@@ -64,7 +64,7 @@ Example Response:
   "data": {
     "getComposer": {
       "id": "c1",
-      "name": "Jerome Kern",
+      "fullName": "Jerome Kern",
       "songs": [
         {
           "id": "1",
