@@ -10,6 +10,8 @@ Go to your jazz-charts-api folder:
 
 `virtualenv -p python3 venv`
 
+`source venv/bin/activate`
+
 `pip install -r requirements.txt`
 
 `sls wsgi serve -p 8000`
