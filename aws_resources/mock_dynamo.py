@@ -60,9 +60,7 @@ def setup_mocks():
             },
         ],
     )
-
-    print(table)
-
+    
     table.put_item(
         Item=mock_composer
     )

@@ -27,5 +27,4 @@ def test_update_song():
     new_attr = {'title': 'new song title'}
     updated_song = {**mock_song, **new_attr}
     response = update_song({}, {}, updated_song)
-    print(response)
     assert response['message'] == 'success' and response['song']['title'] == 'new song title'

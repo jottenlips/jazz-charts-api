@@ -21,5 +21,4 @@ def test_update_composer():
     new_attr = {'fullName': 'Ornett Coleman'}
     updated_composer = {**mock_composer, **new_attr}
     response = update_composer({}, {}, updated_composer)
-    print(response)
     assert response['message'] == 'success' and response['composer']['fullName'] == 'Ornett Coleman'
