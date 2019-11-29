@@ -16,6 +16,10 @@ Go to your jazz-charts-api folder:
 
 Run queries in Graphi at http://localhost:8000/graphql
 
+## Run Tests
+
+`python -m pytest`
+
 *Composer*
 
 * getComposer
