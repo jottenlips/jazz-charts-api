@@ -6,7 +6,7 @@ type FBComposer {
 
 input FBComposerCreateInput {
     songs: [String]
-    fullName: String
+    fullName: String!
 }
 
 input FBComposerUpdateInput {

@@ -4,6 +4,7 @@ plugins:
   - serverless-offline
   - serverless-wsgi
   - serverless-dotenv-plugin
+  - serverless-python-requirements
 
 provider:
   name: aws
@@ -19,7 +20,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - { "Fn::GetAtt": ["jazz-chart-table", "Arn" ] }
+        - { "Fn::GetAtt": ["jazzcharttable", "Arn" ] }
   environment:
     STAGE: ${self:provider.stage}
     TABLE_NAME: ${env:TABLE_NAME}
@@ -28,8 +29,6 @@ custom:
   wsgi:
     app: app.app
     packRequirements: false
-  pythonRequirements:
-    dockerizePip: non-linux
   dotenv:
     path: ./.env
     basePath: ./

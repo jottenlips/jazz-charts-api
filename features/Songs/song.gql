@@ -6,7 +6,7 @@ type FBSong {
 }
 
 input FBSongCreateInput {
-    title: String
+    title: String!
     composer: String
     chordChart: String
 }
@@ -27,6 +27,7 @@ type FakeBookSongResponse implements FakeBookResponse {
 
 extend type Query {
   getSong(id: String!): FBSong
+  getSongs(lastEvaluatedKey: String): [FBSong]
 }
 
 extend type Mutation {
