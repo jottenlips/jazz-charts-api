@@ -21,6 +21,15 @@ def create_composer(obj, info, composer):
         'success': True
     }
 
+def get_composers(obj, info, last_evaluated_key):
+    composers = table().scan(
+        Limit=10,  
+        ExclusiveStartKey={'id': last_evaluated_key},
+        Select='ALL_ATTRIBUTES', 
+        FilterExpression='attribute_exists(fullName)'
+    )['Items']
+    return composers
+
 def update_composer(obj, info, composer):
     attributes_to_update = build_update_attributes_dictionary(composer)
     update_expression = build_update_expression(composer)

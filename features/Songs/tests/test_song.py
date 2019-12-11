@@ -1,5 +1,5 @@
 
-from features.Songs.song import resolve_song, resolve_songs, create_song, update_song
+from features.Songs.song import resolve_song, resolve_songs, create_song, update_song, get_songs
 from aws_resources.mock_dynamo import setup_mocks, mock_song, another_mock_song, mock_create_song
 from moto import mock_dynamodb2
 
@@ -13,6 +13,13 @@ def test_resolve_song():
 def test_resolve_song():
     setup_mocks()
     songs = list(resolve_songs({'songs': ["1", "2"]}, {}))
+    assert songs == [mock_song, another_mock_song]
+
+
+@mock_dynamodb2
+def test_get_songs():
+    setup_mocks()
+    songs = get_songs({}, {}, "")
     assert songs == [mock_song, another_mock_song]
 
 @mock_dynamodb2

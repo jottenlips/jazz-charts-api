@@ -24,6 +24,8 @@ type FakeBookComposerResponse implements FakeBookResponse {
 
 extend type Query {
   getComposer(id: String!): FBComposer
+  getComposers(last_evaluated_key: String): [FBComposer]
+
 }
 
 extend type Mutation {
