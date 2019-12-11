@@ -26,7 +26,7 @@ def get_composers(obj, info, last_evaluated_key):
         Limit=10,  
         ExclusiveStartKey={'id': last_evaluated_key},
         Select='ALL_ATTRIBUTES', 
-        FilterExpression='attribute_exists(title)'
+        FilterExpression='attribute_exists(fullName)'
     )['Items']
     return composers
 
