@@ -15,12 +15,11 @@ def resolve_songs(obj, info):
 
 def get_songs(obj, info, last_evaluated_key):
     songs = table().scan(
-        Limit=20,  
+        Limit=10,  
         Select='ALL_ATTRIBUTES', 
-        ExclusiveStartKey=last_evaluated_key,
+        ExclusiveStartKey={'id': last_evaluated_key},
         FilterExpression='attribute_exists(title)'
     )['Items']
-    print(songs)
     return songs
 
 def create_song(obj, info, song):
