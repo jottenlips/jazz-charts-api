@@ -27,7 +27,7 @@ type FakeBookSongResponse implements FakeBookResponse {
 
 extend type Query {
   getSong(id: String!): FBSong
-  getSongs(lastEvaluatedKey: String): [FBSong]
+  getSongs(last_evaluated_key: String): [FBSong]
 }
 
 extend type Mutation {

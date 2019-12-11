@@ -13,6 +13,16 @@ def resolve_songs(obj, info):
     ids = obj['songs']
     return map(lambda id: resolve_song(obj, info, id), ids)
 
+def get_songs(obj, info, last_evaluated_key):
+    songs = table().scan(
+        Limit=20,  
+        Select='ALL_ATTRIBUTES', 
+        ExclusiveStartKey=last_evaluated_key,
+        FilterExpression='attribute_exists(title)'
+    )['Items']
+    print(songs)
+    return songs
+
 def create_song(obj, info, song):
     id = str(uuid.uuid4())
     song['id'] = id
