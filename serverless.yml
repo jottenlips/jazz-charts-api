@@ -1,4 +1,4 @@
-service: jazz-charts-api
+service: jazz-chart-api
 
 plugins:
   - serverless-offline
@@ -34,6 +34,13 @@ custom:
     basePath: ./
     include:
       - TABLE_NAME
+  pythonRequirements:
+    slim: true
+    noDeploy:
+      - pytest
+      - boto3
+      - moto
+      - boto
 
 functions:
   api:

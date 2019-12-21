@@ -64,7 +64,6 @@ rsa==4.0
 s3transfer==0.2.1
 six==1.13.0
 sshpubkeys==3.1.0
-starlette==0.12.13
 typed-ast==1.4.0
 typing-extensions==3.7.4.1
 urllib3==1.25.7
