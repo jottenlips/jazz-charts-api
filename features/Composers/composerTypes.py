@@ -1,6 +1,7 @@
 from ariadne import load_schema_from_path, ObjectType, QueryType, MutationType
 from features.Composers.composer import resolve_composer, create_composer, update_composer, get_composers
 from features.Songs.song import resolve_songs
+from features.Songs.songTypes import songQueries
 
 composerQueries = QueryType()
 composerMutations = MutationType()
