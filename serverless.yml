@@ -6,6 +6,11 @@ plugins:
   - serverless-dotenv-plugin
   - serverless-python-requirements
 
+package:
+  exclude:
+    - node_modules/**
+    - venv/**
+
 provider:
   name: aws
   runtime: python3.7
