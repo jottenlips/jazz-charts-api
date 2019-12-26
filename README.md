@@ -26,6 +26,8 @@ Run queries in Graphi at http://localhost:8000/graphql
 
 * getComposer
 
+* getComposers
+
 * createComposer
 
 * updateComposer
@@ -34,6 +36,8 @@ Run queries in Graphi at http://localhost:8000/graphql
 *Song*
 
 * getSong
+
+* getSongs
 
 * createSong
 
