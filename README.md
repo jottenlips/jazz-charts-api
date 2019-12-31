@@ -1,3 +1,12 @@
+# Deploy
+
+Setup .aws credentials.
+
+```console
+npm install -g serverless
+sls deploy
+```
+
 # Offline Dev
 
 Set up your .aws credentials, make a DynamoDB table named jazz-charts-dev
